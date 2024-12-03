@@ -1,11 +1,10 @@
-from django.shortcuts import render,redirect
-
+from django.shortcuts import render
+from rest_framework import viewsets
+from .models import *
+from .serializers import *
 # Create your views here.
-def log(req):
-    return render(req,'login.html')
 
-def reg(req):
-    return render(req,'user/register.html')
-
-def u_home(req):
-    return render(req,'user/uhome.html')
+class empv(viewsets.ModelViewSet):
+    queryset=Employee.objects.all()
+    serializer_class=Emp
+    
