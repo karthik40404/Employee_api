@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-7%x3g5pqxoa@ru_re(1u4(n^xu9i1%bsf2h2k2(@#d!fop(6+h
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+CORS_ALLOWED_ORIGINS = ['http://localhost:5173']
 ALLOWED_HOSTS = []
 
 
@@ -40,9 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'solarapp',
     'rest_framework',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
